@@ -1,9 +1,18 @@
 import { useState } from "react";
 import "./App.css";
 import Navbar from "./Component/Navbar";
+import Button from "./Component/Button";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [show, setshow] = useState(false);
+
+  const toggleEyeBtn = () => {
+    setshow(!show);
+    
+    
+  };
 
   return (
     <>
@@ -14,7 +23,7 @@ function App() {
         </div>
         <Navbar />
         {/* INPUT AREA */}
-        <div className="w-[90%]  mx-auto items-center flex flex-col justify-center my-8 gap-4">
+        <div className="inputs w-[90%]  mx-auto items-center flex flex-col justify-center my-8 gap-4">
           <h1 className="text-3xl text-white ">
             Manage Your
             <span className="text-violet-600  items-center"> PASSWORD </span> At
@@ -32,12 +41,23 @@ function App() {
               type="text"
               className="w-124 border-2 border-violet-600 rounded-full p-1 bg-white"
             />
-            <input
-              placeholder="password"
-              type="password"
-              className=" w-124 border-2 border-violet-600 rounded-full p-1 bg-white"
-            />
+            <div className="password relative w-124">
+              <input
+                placeholder="password"
+                type={show ? "text" : "password"}
+                className="w-full  border-2 border-violet-600 rounded-full p-1 bg-white"
+              />
+              <button
+                type="button"
+                onClick={toggleEyeBtn}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-violet-900"
+              >
+                {show? <FaEye />:<FaEyeSlash />}
+              </button>
+            </div>
           </div>
+          <Button value="SUBMIT" />
+          {/* <button className="text-white border-2 border-violet-600 rounded-full p-2 font-semibold cursor-pointer "> Add Password</button> */}
         </div>
       </div>{" "}
       {/*MAIN DIV */}
