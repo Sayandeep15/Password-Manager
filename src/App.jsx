@@ -9,11 +9,11 @@ function App() {
     <>
       <div className="w-full h-screen">
         <Navbar />
-        <div class="relative w-fit">
-          <div class="absolute inset-0 rounded-full bg-blue-700 opacity-50 blur-3xl w-48 h-48"></div>
+        <div class="relative w-full">
+          <div class="absolute inset-0 rounded-full bg-blue-700 opacity-50 blur-3xl w-48 h-48 z-50 top-0 left-[90%]"></div>
 
-          {/* <div class="w-40 h-40 bg-blue-500 rounded-full shadow-2xl"></div> */}
         </div>
+
       </div>
     </>
   );
