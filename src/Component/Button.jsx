@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = (props) => {
+const Button = ({value, onClick}) => {
   return (
     <StyledWrapper>
       <div className="container">
-        <button className="button">{props.value} </button>
+        <button onClick={onClick} className="button">{value} </button>
       </div>
     </StyledWrapper>
   );
