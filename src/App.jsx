@@ -17,7 +17,7 @@ function App() {
       {/*MAIN DIV */}
        <div className="relative w-full">
           {/* BLUR CIRCLE */}
-          <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-3xl w-64 h-64 z-50 bottom-[50%] transform -translate-y-1/2 left-[0%]"></div>
+          <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-3xl w-64 h-64 z-50 bottom-[50%] transform -translate-y-1/2 -left-[5%]"></div>
         </div>
     </>
   );
