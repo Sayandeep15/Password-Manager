@@ -9,12 +9,16 @@ function App() {
       <div className="w-full h-screen">
         <div className="relative w-full">
           {/* BLUR CIRCLE */}
-          <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-3xl w-64 h-64 z-50 top-0 left-[90%]"></div>
+          <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-3xl w-64 h-64 -z-10 top-0 left-[88%] transform -translate-y-1/3"></div>
         </div>
         <Navbar />
         <Manager />
       </div>
       {/*MAIN DIV */}
+       <div className="relative w-full">
+          {/* BLUR CIRCLE */}
+          <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-3xl w-64 h-64 z-50 bottom-[50%] transform -translate-y-1/2 left-[0%]"></div>
+        </div>
     </>
   );
 }
