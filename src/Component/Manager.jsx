@@ -4,6 +4,8 @@ import Button from "./Button";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { MdContentCopy } from "react-icons/md";
+import { FiEdit3 } from "react-icons/fi";
+import { MdDeleteOutline } from "react-icons/md";
 import { v4 as uuidv4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -198,6 +200,17 @@ const Manager = () => {
                             }}
                             className="text-violet-500 absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
                           />
+                        </div>
+                      </td>
+                      <td
+                        className="overflow-hidden "
+                        style={{
+                          boxShadow:
+                            "inset 0 1px 3px rgba(124, 58, 237, 0.08), inset 0 0 2px rgba(255, 255, 255, 0.03)",
+                        }}
+                      >
+                        <div className="action flex justify-center gap-4 text-center items-center">
+                          <FiEdit3 className="text-violet-500 text-[17px] hover:scale-110 transition-all ease"/> <MdDeleteOutline className="text-violet-500 text-[17px] hover:scale-110 transition-all ease"/>
                         </div>
                       </td>
                     </tr>
