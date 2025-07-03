@@ -13,6 +13,7 @@ const Manager = () => {
   const [show, setshow] = useState(false);
   const [data, setdata] = useState({ site: "", username: "", password: "" });
   const [passwordArray, setpasswordArray] = useState([]);
+  const [touched, setTouched] = useState({ site: false, username: false, password: false });
 
   useEffect(() => {
     let password = localStorage.getItem("password");
@@ -22,22 +23,55 @@ const Manager = () => {
   }, []); //when the website loads, it fetches the passwords from local storage and populates the passwordArray
 
   // ----FUNCTIONS----
-  // Disable button if any field length is less than 3
-  const isDisabled =
-    data.site.length < 5 ||
-    data.username.length < 3 ||
-    data.password.length < 8;
+  // Validation logic
+  const isSiteInvalid = data.site.length < 5;
+  const isUsernameInvalid = data.username.length < 3;
+  const isPasswordInvalid = data.password.length < 8;
+
+  const isDisabled = isSiteInvalid || isUsernameInvalid || isPasswordInvalid;
 
   //SAVE PASSWORD TO THE LOCAL STORAGE
   const handleSave = () => {
     setpasswordArray([...passwordArray, { ...data, id: uuidv4() }]);
     localStorage.setItem(
       "password",
-      JSON.stringify([...passwordArray, { ...data, id: uuidv4() }])
-    );
-    console.log([...passwordArray, data]);
+      JSON.stringify([...passwordArray, { ...data, id: uuidv4() }]));
     setdata({ site: "", username: "", password: "" });
+    toast("Saved Successfully!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
+
+  // DELETE FUNCTION
+  const handleDelete = (id) => {
+    setpasswordArray(passwordArray.filter(item => item.id !== id))
+    localStorage.setItem("password", JSON.stringify(passwordArray.filter(item => item.id !== id)))
+    toast("Deleted Successfully!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
+  }
+
+  //EDIT FUNCTION
+  const handleEdit = (id) => {
+    setdata(...passwordArray, (passwordArray.filter(i => i.id == id)))
+    setpasswordArray(passwordArray.filter(i => i.id !== id))
+
+  }
 
   const handleChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
@@ -81,7 +115,7 @@ const Manager = () => {
           <span className="text-violet-600  items-center"> PASSWORD </span> At
           One Place
         </h1>
-        <input
+        <input onBlur={() => setTouched({ ...touched, site: true })}
           required={true}
           onChange={handleChange}
           name="site"
@@ -92,36 +126,50 @@ const Manager = () => {
         />
 
         <div className="w-[60%] flex gap-2 justify-between">
-          <input
-            required={true}
-            onChange={handleChange}
-            name="username"
-            value={data.username}
-            placeholder="Enter username"
-            type="text"
-            className="w-114 border-1 border-violet-600 rounded-full p-1 bg-white"
-          />
-          <div className="password relative w-114">
-            <input
+          {/* username */}
+          <div className="usernameBox w-114">
+            <input onBlur={() => setTouched({ ...touched, username: true })}
               required={true}
               onChange={handleChange}
-              name="password"
-              value={data.password}
-              placeholder="Enter password"
-              type={show ? "text" : "password"}
-              className="w-full  border-1 border-violet-600 rounded-full p-1 bg-white"
+              name="username"
+              value={data.username}
+              placeholder="Enter username"
+              type="text"
+              className="w-full border-1 border-violet-600 rounded-full p-1 bg-white"
             />
-            <button
-              type="button"
-              onClick={toggleEyeBtn}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-violet-900"
-            >
-              {show ? <FaEye /> : <FaEyeSlash />}
-            </button>
+
+            {touched.username && isUsernameInvalid && (
+              <p className="text-red-500 text-xs pt-1">Username must be at least 3 characters.</p>
+            )}
+          </div>
+          {/* password */}
+          <div className="passwordBox w-114">
+            <div className="password relative ">
+              <input onBlur={() => setTouched({ ...touched, password: true })}
+                required={true}
+                onChange={handleChange}
+                name="password"
+                value={data.password}
+                placeholder="Enter password"
+                type={show ? "text" : "password"}
+                className="w-full  border-1 border-violet-600 rounded-full p-1 bg-white"
+              />
+              <button
+                type="button"
+                onClick={toggleEyeBtn}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-violet-900"
+              >
+                {show ? <FaEye /> : <FaEyeSlash />}
+              </button>
+
+            </div>
+            {touched.password && isPasswordInvalid && (
+              <p className="text-red-500 text-xs pt-1 ">Password must be at least 8 characters.</p>
+            )}
           </div>
         </div>
         <Button value="SAVE" onClick={handleSave} disabled={isDisabled} />
-        {/* <button className="text-white border-1 border-violet-600 rounded-full p-1 font-semibold cursor-pointer "> Add Password</button> */}
+
 
         {/* Input div ends--- */}
 
@@ -150,8 +198,8 @@ const Manager = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {passwordArray.map((items, index) => (
-                    <tr key={index} className="bg-[#0a0a14] text-sm">
+                  {passwordArray.map((items, id) => (
+                    <tr key={id} className="bg-[#0a0a14] text-sm">
                       <td
                         className="overflow-hidden "
                         style={{
@@ -210,7 +258,7 @@ const Manager = () => {
                         }}
                       >
                         <div className="action flex justify-center gap-4 text-center items-center">
-                          <FiEdit3 className="text-violet-500 text-[17px] hover:scale-110 transition-all ease"/> <MdDeleteOutline className="text-violet-500 text-[17px] hover:scale-110 transition-all ease"/>
+                          <FiEdit3 className="text-violet-500 text-[17px] hover:scale-110 transition-all ease cursor-pointer" onClick={() => { handleEdit(items.id) }} /> <MdDeleteOutline className="text-violet-500 text-[17px] hover:scale-110 transition-all ease cursor-pointer" onClick={() => { handleDelete(items.id) }} />
                         </div>
                       </td>
                     </tr>

@@ -2,6 +2,8 @@ IMPORTANT IMPORTS:
 1. react icons
 2. uuid (npm i uuid)
 3. styled-components
+   => import styled from 'styled-components';
+   
 4. react tostify (alerts, notifications etc) 
    => npm i --save react-toastify
    => import { ToastContainer, toast } from 'react-toastify';

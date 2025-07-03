@@ -5,7 +5,7 @@ const Button = ({value, onClick,disabled}) => {
   return (
     <StyledWrapper>
       <div className="container">
-        <button onClick={onClick} className="button" disabled={disabled}>{value} </button>
+        <button onClick={onClick} className={`button ${disabled ? 'cursor-not-allowed': 'cursor: pointer;'}`} disabled={disabled}  >{value} </button>
       </div>
     </StyledWrapper>
   );
@@ -20,7 +20,7 @@ const StyledWrapper = styled.div`
     font-weight:400;
     background-color: #05050A;
     color: #fff;
-    cursor: pointer;
+    // cursor: pointer;
     box-shadow: 2px 2px 3px #000000b4;
   }
 
