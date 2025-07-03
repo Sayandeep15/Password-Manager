@@ -152,12 +152,12 @@ const Manager = () => {
                 value={data.password}
                 placeholder="Enter password"
                 type={show ? "text" : "password"}
-                className="w-full  border-1 border-violet-600 rounded-full p-1 bg-white"
+                className="w-full  border-1 border-violet-600 rounded-full p-1 bg-white "
               />
               <button
                 type="button"
                 onClick={toggleEyeBtn}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-violet-900"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-violet-900 cursor-pointer"
               >
                 {show ? <FaEye /> : <FaEyeSlash />}
               </button>
