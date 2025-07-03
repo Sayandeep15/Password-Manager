@@ -38,6 +38,7 @@ const Manager = () => {
       "password",
       JSON.stringify([...passwordArray, { ...data, id: uuidv4() }]));
     setdata({ site: "", username: "", password: "" });
+    setTouched({ site: false, username: false, password: false });
     toast("Saved Successfully!", {
       position: "top-right",
       autoClose: 2000,
