@@ -230,7 +230,7 @@ const Manager = () => {
                             onClick={() => {
                               copyText(items.username);
                             }}
-                            className="text-violet-500 absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                            className="text-violet-500 absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:scale-110 transition-all ease"
                           />
                         </div>
                       </td>
@@ -248,7 +248,7 @@ const Manager = () => {
                             onClick={() => {
                               copyText(items.password);
                             }}
-                            className="text-violet-500 absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                            className="text-violet-500 absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:scale-110 transition-all ease"
                           />
                         </div>
                       </td>
