@@ -29,6 +29,7 @@ const Manager = () => {
   const isPasswordInvalid = data.password.length < 8;
 
   const isDisabled = isSiteInvalid || isUsernameInvalid || isPasswordInvalid;
+  const cursor= touched.site || touched.username|| touched.password
 
   //SAVE PASSWORD TO THE LOCAL STORAGE
   const handleSave = () => {
@@ -109,7 +110,7 @@ const Manager = () => {
         pauseOnHover
         theme="light"
       />
-      <div className="inputs w-[90%]  mx-auto items-center flex flex-col justify-center my-8 gap-4">
+      <div className="inputs w-[90%]   mx-auto items-center flex flex-col justify-center my-6 gap-4">
         <h1 className="text-3xl text-white ">
           Manage Your
           <span className="text-violet-600  items-center"> PASSWORD </span> At
@@ -168,13 +169,13 @@ const Manager = () => {
             )}
           </div>
         </div>
-        <Button value="SAVE" onClick={handleSave} disabled={isDisabled} />
+        <Button value="SAVE" onClick={handleSave} disabled={isDisabled} cursor={cursor} />
 
 
         {/* Input div ends--- */}
 
         {/* PASSWORD TABLE */}
-        <div className="tableContainer w-[80%] mt-4 mx-auto items-center text-white ">
+        <div className="tableContainer w-[80%] my-2 mx-auto items-center text-white ">
           <h1 className="text-xl mb-2">
             Your{" "}
             <span className="text-violet-600  items-center">Passwords</span>{" "}
@@ -187,7 +188,7 @@ const Manager = () => {
           )}
           {/* TABLE */}
           {passwordArray.length >= 1 && (
-            <div className="max-h-96 overflow-y-auto rounded-md ">
+            <div className="max-h-80 bg-amber-100 overflow-y-auto rounded-md ">
               <table className="table-fixed w-full text-center  ">
                 <thead className="bg-violet-700 sticky top-0 z-10 ">
                   <tr>

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = ({value, onClick,disabled}) => {
+const Button = ({value, onClick,disabled, cursor}) => {
   return (
     <StyledWrapper>
       <div className="container">
-        <button onClick={onClick} className={`button ${disabled ? 'cursor-not-allowed': 'cursor: pointer;'}`} disabled={disabled}  >{value} </button>
+        <button onClick={onClick} className={`button ${cursor ? 'cursor-not-allowed': 'cursor: pointer;'}`} disabled={disabled}  >{value} </button>
       </div>
     </StyledWrapper>
   );
