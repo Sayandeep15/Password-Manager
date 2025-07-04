@@ -6,6 +6,8 @@ import { FaEyeSlash } from "react-icons/fa";
 import { MdContentCopy } from "react-icons/md";
 import { FiEdit3 } from "react-icons/fi";
 import { MdDeleteOutline } from "react-icons/md";
+import { RiResetLeftFill } from "react-icons/ri";
+
 import { v4 as uuidv4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -50,7 +52,11 @@ const Manager = () => {
       theme: "light",
     });
   };
-
+  //RESET FUNCTION
+   const handleReset=()=>{
+    setTouched({ site: false, username: false, password: false });
+    setdata({ site: "", username: "", password: "" });
+   }
   // DELETE FUNCTION
   const handleDelete = (id) => {
     let c = confirm("Do you want to delete?")
@@ -208,10 +214,14 @@ const Manager = () => {
             )}
           </div>
         </div>
-        <Button value="SAVE" onClick={handleSave} disabled={isDisabled} cursor={cursor} />
 
-
-        {/* Input div ends--- */}
+        {/* BUTTONS */}
+        <div className="btns flex gap-8">
+            <Button value="SAVE" onClick={handleSave} disabled={isDisabled} cursor={cursor} />
+            <Button value="RESET" onClick={handleReset} />
+        </div>
+        
+        {/* Input div ends--- <RiResetLeftFill /> */}
 
         {/* PASSWORD TABLE */}
         <div className="tableContainer w-[80%] my-2 mx-auto items-center text-white ">
