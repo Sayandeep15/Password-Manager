@@ -53,24 +53,26 @@ const Manager = () => {
 
   // DELETE FUNCTION
   const handleDelete = (id) => {
-    setpasswordArray(passwordArray.filter(item => item.id !== id))
-    localStorage.setItem("password", JSON.stringify(passwordArray.filter(item => item.id !== id)))
-    toast("Deleted Successfully!", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-
+    let c = confirm("Do you want to delete?")
+    if (c) {
+      setpasswordArray(passwordArray.filter(item => item.id !== id))
+      localStorage.setItem("password", JSON.stringify(passwordArray.filter(item => item.id !== id)))
+      toast("Deleted Successfully!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   }
 
   //EDIT FUNCTION
   const handleEdit = (id) => {
-    setdata(...passwordArray, (passwordArray.filter(i => i.id == id)))
+    setdata(...passwordArray, (passwordArray.filter(i => i.id === id)))
     setpasswordArray(passwordArray.filter(i => i.id !== id))
 
   }
@@ -188,7 +190,7 @@ const Manager = () => {
               Your{" "}
               <span className="text-violet-600  items-center">Passwords</span>{" "}
             </h1>
-            <button className="flex gap-1 items-center text-violet-500">Delete All <MdDeleteOutline/> </button>
+            <button className="flex gap-1 items-center text-violet-500">Delete All <MdDeleteOutline /> </button>
           </div>
 
           {passwordArray.length === 0 && (
