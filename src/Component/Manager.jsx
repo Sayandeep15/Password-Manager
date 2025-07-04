@@ -119,18 +119,18 @@ const Manager = () => {
         </h1>
         <div className="urlBox w-[60%]">
 
-        <input onBlur={() => setTouched({ ...touched, site: true })}
-          required={true}
-          onChange={handleChange}
-          name="site"
-          value={data.site}
-          placeholder="Enter url"
-          type="text"
-          className="w-full border-1 border-violet-600 rounded-full p-1 bg-white"
-        />
-        {touched.site && isSiteInvalid && (
-          <p className="text-red-500 text-xs pt-1">URL must be at least 5 characters.</p>
-        )}
+          <input onBlur={() => setTouched({ ...touched, site: true })}
+            required={true}
+            onChange={handleChange}
+            name="site"
+            value={data.site}
+            placeholder="Enter url"
+            type="text"
+            className="w-full border-1 border-violet-600 rounded-full py-1 px-2 bg-white"
+          />
+          {touched.site && isSiteInvalid && (
+            <p className="text-red-500 text-xs pt-1">URL must be at least 5 characters.</p>
+          )}
         </div>
 
         <div className="w-[60%] flex gap-2 justify-between">
@@ -143,7 +143,7 @@ const Manager = () => {
               value={data.username}
               placeholder="Enter username"
               type="text"
-              className="w-full border-1 border-violet-600 rounded-full p-1 bg-white"
+              className="w-full border-1 border-violet-600 rounded-full py-1 px-2 bg-white"
             />
 
             {touched.username && isUsernameInvalid && (
@@ -160,7 +160,7 @@ const Manager = () => {
                 value={data.password}
                 placeholder="Enter password"
                 type={show ? "text" : "password"}
-                className="w-full  border-1 border-violet-600 rounded-full p-1 bg-white "
+                className="w-full  border-1 border-violet-600 rounded-full py-1 px-2 bg-white "
               />
               <button
                 type="button"
@@ -183,10 +183,13 @@ const Manager = () => {
 
         {/* PASSWORD TABLE */}
         <div className="tableContainer w-[80%] my-2 mx-auto items-center text-white ">
-          <h1 className="text-xl mb-2">
-            Your{" "}
-            <span className="text-violet-600  items-center">Passwords</span>{" "}
-          </h1>
+          <div className="heading w-full flex justify-between items-center px-1">
+            <h1 className="text-xl mb-2">
+              Your{" "}
+              <span className="text-violet-600  items-center">Passwords</span>{" "}
+            </h1>
+            <button className="flex gap-1 items-center text-violet-500">Delete All <MdDeleteOutline/> </button>
+          </div>
 
           {passwordArray.length === 0 && (
             <div className="text-gray-400 text-sm mt-2">
