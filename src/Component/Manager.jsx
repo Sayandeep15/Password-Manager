@@ -146,7 +146,7 @@ const Manager = () => {
       <div className="inputs w-[90%]   mx-auto items-center flex flex-col justify-center my-6 gap-4">
         <h1 className="text-3xl text-white ">
           Manage Your
-          <span className="text-violet-600  items-center"> PASSWORD </span> At
+          <span className="text-violet-600 font-medium items-center"> PASSWORD </span> At
           One Place
         </h1>
         <div className="urlBox w-[60%]">
@@ -218,9 +218,11 @@ const Manager = () => {
           <div className="heading w-full flex justify-between items-center px-1">
             <h1 className="text-xl mb-2">
               Your{" "}
-              <span className="text-violet-600  items-center">Passwords</span>{" "}
+              <span className="text-violet-600 font-medium  items-center">Passwords</span>{" "}
             </h1>
-            <button onClick={deleteAll} className="flex gap-1 items-center text-violet-500 hover:text-red-500 hover:scale-x-105 transition-all ease-in cursor-pointer">Delete All <MdDeleteOutline /> </button>
+
+            {/* DELETE ALL BUTTON */}
+            <button onClick={deleteAll} className="flex gap-1 items-center font-semibold text-violet-500 hover:text-red-500 hover:scale-x-105 transition-all ease-in cursor-pointer">Delete All <MdDeleteOutline /> </button>
           </div>
 
           {passwordArray.length === 0 && (
@@ -230,7 +232,7 @@ const Manager = () => {
           )}
           {/* TABLE */}
           {passwordArray.length >= 1 && (
-            <div className="max-h-80 bg-amber-100 overflow-y-auto rounded-md ">
+            <div className="tableDiv max-h-80 bg-amber-100 overflow-y-auto rounded-md ">
               <table className="table-fixed w-full text-center  ">
                 <thead className="bg-violet-700 sticky top-0 z-10 ">
                   <tr>

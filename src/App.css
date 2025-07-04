@@ -1,9 +1,30 @@
 @import "tailwindcss";
 
-body{
-    margin:0%;
-    padding:0%;
-    background-color:#05050A;
+body {
+    margin: 0%;
+    padding: 0%;
+    background-color: #05050A;
     overflow: hidden;
     /* color: #0c011dc4; */
+}
+
+.tableDiv::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+
+}
+
+.tableDiv::-webkit-scrollbar-track {
+    background: #0c011d;
+    /* border-radius: 10px; */
+}
+
+.tableDiv::-webkit-scrollbar-thumb {
+    background: oklch(60.6% 0.25 292.717);
+    border-radius: 10px;
+    cursor: grab;
+}
+
+.tableDiv::-webkit-scrollbar-thumb:hover {
+    background: oklch(64.521% 0.21056 293.308);
 }
