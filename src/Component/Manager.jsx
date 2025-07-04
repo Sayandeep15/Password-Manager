@@ -70,6 +70,36 @@ const Manager = () => {
     }
   }
 
+  //DELETE ALL
+  const deleteAll = () => {
+    if(passwordArray.length==0){
+      toast.warning("Nothing to delete!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    else{
+    setpasswordArray([])
+    localStorage.clear()
+    toast.success("It is all clear!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  }
+
   //EDIT FUNCTION
   const handleEdit = (id) => {
     setdata(...passwordArray, (passwordArray.filter(i => i.id === id)))
@@ -190,7 +220,7 @@ const Manager = () => {
               Your{" "}
               <span className="text-violet-600  items-center">Passwords</span>{" "}
             </h1>
-            <button className="flex gap-1 items-center text-violet-500">Delete All <MdDeleteOutline /> </button>
+            <button onClick={deleteAll} className="flex gap-1 items-center text-violet-500 hover:text-red-500 hover:scale-x-105 transition-all ease-in cursor-pointer">Delete All <MdDeleteOutline /> </button>
           </div>
 
           {passwordArray.length === 0 && (
@@ -212,7 +242,7 @@ const Manager = () => {
                 </thead>
                 <tbody>
                   {passwordArray.map((items, id) => (
-                    <tr key={id} className="bg-[#0a0a14] text-sm">
+                    <tr key={id} className="bg-[#0a0a14] text-sm ">
                       <td
                         className="overflow-hidden "
                         style={{
@@ -224,7 +254,7 @@ const Manager = () => {
                           href={items.site}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="hover:text-blue-400 transition-all ease-in"
+                          className="hover:text-blue-400 transition-all ease-in "
                         >
                           {items.site}
                         </a>
