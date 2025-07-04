@@ -29,7 +29,7 @@ const Manager = () => {
   const isPasswordInvalid = data.password.length < 8;
 
   const isDisabled = isSiteInvalid || isUsernameInvalid || isPasswordInvalid;
-  const cursor= touched.site || touched.username|| touched.password
+  const cursor = touched.site || touched.username || touched.password
 
   //SAVE PASSWORD TO THE LOCAL STORAGE
   const handleSave = () => {
@@ -117,6 +117,8 @@ const Manager = () => {
           <span className="text-violet-600  items-center"> PASSWORD </span> At
           One Place
         </h1>
+        <div className="urlBox w-[60%]">
+
         <input onBlur={() => setTouched({ ...touched, site: true })}
           required={true}
           onChange={handleChange}
@@ -124,8 +126,12 @@ const Manager = () => {
           value={data.site}
           placeholder="Enter url"
           type="text"
-          className="w-[60%] border-1 border-violet-600 rounded-full p-1 bg-white"
+          className="w-full border-1 border-violet-600 rounded-full p-1 bg-white"
         />
+        {touched.site && isSiteInvalid && (
+          <p className="text-red-500 text-xs pt-1">URL must be at least 5 characters.</p>
+        )}
+        </div>
 
         <div className="w-[60%] flex gap-2 justify-between">
           {/* username */}
