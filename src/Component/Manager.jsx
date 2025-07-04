@@ -219,6 +219,7 @@ const Manager = () => {
                           href={items.site}
                           target="_blank"
                           rel="noopener noreferrer"
+                          className="hover:text-blue-400 transition-all ease-in"
                         >
                           {items.site}
                         </a>
