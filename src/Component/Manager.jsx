@@ -232,7 +232,7 @@ const Manager = () => {
             </h1>
 
             {/* DELETE ALL BUTTON */}
-            <button onClick={deleteAll} className="flex gap-1 items-center font-semibold text-violet-500 hover:text-red-500 hover:scale-x-105 transition-all ease-in cursor-pointer">Delete All <MdDeleteOutline /> </button>
+            <button onClick={deleteAll} className="flex gap-1 items-center font-semibold text-violet-500 hover:text-red-500 hover:scale-105 transition-all ease-in cursor-pointer">Delete All <MdDeleteOutline /> </button>
           </div>
 
           {passwordArray.length === 0 && (
