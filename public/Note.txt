@@ -7,3 +7,6 @@ IMPORTANT IMPORTS:
 4. react tostify (alerts, notifications etc) 
    => npm i --save react-toastify
    => import { ToastContainer, toast } from 'react-toastify';
+
+5. react router
+   => npm i react-router-dom

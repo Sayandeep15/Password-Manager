@@ -28,3 +28,7 @@ body {
 .tableDiv::-webkit-scrollbar-thumb:hover {
     background: oklch(64.521% 0.21056 293.308);
 }
+ 
+.red{
+    color:red;
+}
