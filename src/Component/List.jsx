@@ -9,6 +9,7 @@ const List = () => {
                       <span className="text-violet-600 font-medium  items-center">Passwords</span>{" "}
                     </h1>
         
+        
                     {/* DELETE ALL BUTTON */}
                     {/* <button onClick={deleteAll} className="flex gap-1 items-center font-semibold text-violet-500 hover:text-red-500 hover:scale-105 transition-all ease-in cursor-pointer">Delete All <MdDeleteOutline /> </button> */}
                   </div>
