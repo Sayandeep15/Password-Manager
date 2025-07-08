@@ -1,28 +1,23 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Button from "./Button";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { MdContentCopy } from "react-icons/md";
 import { FiEdit3 } from "react-icons/fi";
 import { MdDeleteOutline } from "react-icons/md";
-import { RiResetLeftFill } from "react-icons/ri";
+
 
 import { v4 as uuidv4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
+import { tableContext } from "../Context/Context";
+
 
 const Manager = () => {
+  const { passwordArray, handleDelete, handleEdit, deleteAll, setPasswordArray } = useContext(tableContext);
   const [show, setshow] = useState(false);
   const [data, setdata] = useState({ site: "", username: "", password: "" });
-  const [passwordArray, setpasswordArray] = useState([]);
   const [touched, setTouched] = useState({ site: false, username: false, password: false });
-
-  useEffect(() => {
-    let password = localStorage.getItem("password");
-    if (password) {
-      setpasswordArray(JSON.parse(password));
-    }
-  }, []); //when the website loads, it fetches the passwords from local storage and populates the passwordArray
 
   // ----FUNCTIONS----
   // Validation logic
@@ -35,7 +30,7 @@ const Manager = () => {
 
   //SAVE PASSWORD TO THE LOCAL STORAGE
   const handleSave = () => {
-    setpasswordArray([...passwordArray, { ...data, id: uuidv4() }]);
+    setPasswordArray([...passwordArray, { ...data, id: uuidv4() }]);
     localStorage.setItem(
       "password",
       JSON.stringify([...passwordArray, { ...data, id: uuidv4() }]));
@@ -53,65 +48,11 @@ const Manager = () => {
     });
   };
   //RESET FUNCTION
-   const handleReset=()=>{
+  const handleReset = () => {
     setTouched({ site: false, username: false, password: false });
     setdata({ site: "", username: "", password: "" });
-   }
-  // DELETE FUNCTION
-  const handleDelete = (id) => {
-    let c = confirm("Do you want to delete?")
-    if (c) {
-      setpasswordArray(passwordArray.filter(item => item.id !== id))
-      localStorage.setItem("password", JSON.stringify(passwordArray.filter(item => item.id !== id)))
-      toast("Deleted Successfully!", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
   }
 
-  //DELETE ALL
-  const deleteAll = () => {
-    if(passwordArray.length==0){
-      toast.warning("Nothing to delete!", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
-    else{
-    setpasswordArray([])
-    localStorage.clear()
-    toast.success("It is all clear!", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
-  }
-
-  //EDIT FUNCTION
-  const handleEdit = (id) => {
-    setdata(...passwordArray, (passwordArray.filter(i => i.id === id)))
-    setpasswordArray(passwordArray.filter(i => i.id !== id))
-
-  }
 
   const handleChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
@@ -149,6 +90,8 @@ const Manager = () => {
         pauseOnHover
         theme="light"
       />
+
+
       <div className="inputs w-[90%]   mx-auto items-center flex flex-col justify-center my-6 gap-4">
         <h1 className="text-3xl text-white ">
           Manage Your
@@ -191,7 +134,11 @@ const Manager = () => {
           {/* password */}
           <div className="passwordBox w-114">
             <div className="password relative ">
-              <input onBlur={() => setTouched({ ...touched, password: true })}
+              <input onKeyDown={(e) => {
+                if (e.key === "Enter" && !isDisabled) {
+                  handleSave();
+                }
+              }} onBlur={() => setTouched({ ...touched, password: true })}
                 required={true}
                 onChange={handleChange}
                 name="password"
@@ -217,10 +164,10 @@ const Manager = () => {
 
         {/* BUTTONS */}
         <div className="btns flex gap-8">
-            <Button value="SAVE" onClick={handleSave} disabled={isDisabled} cursor={cursor} />
-            <Button value="RESET" onClick={handleReset} />
+          <Button value="SAVE" onClick={handleSave} disabled={isDisabled} cursor={cursor} />
+          <Button value="RESET" onClick={handleReset} />
         </div>
-        
+
         {/* Input div ends--- <RiResetLeftFill /> */}
 
         {/* PASSWORD TABLE */}
@@ -242,8 +189,8 @@ const Manager = () => {
           )}
           {/* TABLE */}
           {passwordArray.length >= 1 && (
-            <div className="tableDiv max-h-80 bg-amber-100 overflow-y-auto rounded-md ">
-              <table className="table-fixed w-full text-center  ">
+            <div className="tableDiv max-h-80  overflow-y-auto rounded-md ">
+              <table className="table-fixed w-full   ">
                 <thead className="bg-violet-700 sticky top-0 z-10 ">
                   <tr>
                     <th className="w-[1/4] py-1">Website</th>
@@ -256,7 +203,7 @@ const Manager = () => {
                   {passwordArray.map((items, id) => (
                     <tr key={id} className="bg-[#0a0a14] text-sm ">
                       <td
-                        className="overflow-hidden "
+                        className="overflow-hidden p-1.5"
                         style={{
                           boxShadow:
                             "inset 0 1px 3px rgba(124, 58, 237, 0.08), inset 0 0 2px rgba(255, 255, 255, 0.03)",
@@ -284,7 +231,7 @@ const Manager = () => {
                             onClick={() => {
                               copyText(items.username);
                             }}
-                            className="text-violet-500 absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:scale-110 transition-all ease"
+                            className="text-violet-500 absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:scale-110 transition-all ease bg-[#0a0a14] h-full"
                           />
                         </div>
                       </td>
@@ -302,7 +249,7 @@ const Manager = () => {
                             onClick={() => {
                               copyText(items.password);
                             }}
-                            className="text-violet-500 absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:scale-110 transition-all ease"
+                            className="text-violet-500 absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:scale-110 transition-all ease bg-[#0a0a14] h-full"
                           />
                         </div>
                       </td>
@@ -325,6 +272,8 @@ const Manager = () => {
           )}
         </div>
       </div>
+
+
     </>
   );
 };

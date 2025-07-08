@@ -11,12 +11,11 @@ body {
 .tableDiv::-webkit-scrollbar {
     width: 8px;
     height: 10px;
-
 }
 
 .tableDiv::-webkit-scrollbar-track {
-    background: #0c011d;
-    /* border-radius: 10px; */
+    /* background: #0c011d62; */
+    /* bg-[#0c011d8f] */
 }
 
 .tableDiv::-webkit-scrollbar-thumb {
@@ -27,8 +26,9 @@ body {
 
 .tableDiv::-webkit-scrollbar-thumb:hover {
     background: oklch(64.521% 0.21056 293.308);
+
 }
- 
-.red{
-    color:red;
+
+.red {
+    color: red;
 }
