@@ -28,9 +28,7 @@ function App() {
           <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-3xl w-64 h-64 -z-10 top-0 left-[88%] transform -translate-y-1/3"></div>
         </div>
         <RouterProvider router={router}/>
-        {/* <Navbar />
-        <Manager />
-        <Footer /> */}
+        
       </div>
       {/*MAIN DIV */}
       <div className="relative w-full">
