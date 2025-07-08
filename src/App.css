@@ -13,10 +13,10 @@ body {
     height: 10px;
 }
 
-.tableDiv::-webkit-scrollbar-track {
-    /* background: #0c011d62; */
-    /* bg-[#0c011d8f] */
-}
+/* .tableDiv::-webkit-scrollbar-track {
+    background: #0c011d62;
+   
+} */
 
 .tableDiv::-webkit-scrollbar-thumb {
     background: oklch(60.6% 0.25 292.717);
