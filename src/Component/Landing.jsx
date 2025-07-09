@@ -60,6 +60,7 @@ const Landing = () => {
             loading="eager"  // Force it to load immediately
             width="400"
             height="400"
+            onLoad={(e) => e.currentTarget.classList.add("opacity-100")}
             alt="Password Manager Illustration"
             className=" rounded-lg shadow-lg"
           />
