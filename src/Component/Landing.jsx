@@ -54,7 +54,7 @@ const Landing = () => {
         </div>
 
         {/* RIGHT: Image */}
-        <div className="relative items-center  w-fit m-4"> 
+        <div className="relative items-center  w-fit m-4">
           <img
             src={lockImage}
             alt="Password Manager Illustration"
