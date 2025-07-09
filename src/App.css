@@ -54,7 +54,7 @@ body {
 
 .custom-shape-divider-bottom-1752050492 .shape-fill {
   fill: #7C3AED;
-  animation: waveMove 6s ease-in-out infinite alternate; /* ↓ from 10s to 6s */
+  animation: waveMove 4s ease-in-out infinite alternate; /* ↓ from 10s to 6s */
 }
 
 .custom-shape-divider-bottom-1752050492 path:nth-child(2) {
