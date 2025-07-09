@@ -57,8 +57,11 @@ const Landing = () => {
         <div className="relative items-center  w-fit m-4">
           <img
             src={lockImage}
+            loading="eager"  // Force it to load immediately
+            width="400"
+            height="400"
             alt="Password Manager Illustration"
-            className="w-full max-w-sm rounded-lg shadow-lg"
+            className=" rounded-lg shadow-lg"
           />
           <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-3xl w-84 h-24 -z-20 top-[50%] transform -translate-1/2 left-[50%]"></div>
         </div>
