@@ -10,3 +10,5 @@ IMPORTANT IMPORTS:
 
 5. react router
    => npm i react-router-dom
+
+6. npm install framer-motion

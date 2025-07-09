@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import lockImage from '../assets/password.svg';
 
+
 const Landing = () => {
   return (
+    
     <div className="w-full min-h-[80%]  text-white flex items-center justify-center px-6 py-16">
       <div class="custom-shape-divider-bottom-1752050492">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -67,7 +69,9 @@ const Landing = () => {
           <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-3xl w-84 h-24 -z-20 top-[50%] transform -translate-1/2 left-[50%]"></div>
         </div>
       </div>
+      
     </div>
+    
   );
 };
 
