@@ -12,3 +12,5 @@ IMPORTANT IMPORTS:
    => npm i react-router-dom
 
 6. npm install framer-motion
+
+7. import { useLocation } from "react-router-dom"; [to locate the route]

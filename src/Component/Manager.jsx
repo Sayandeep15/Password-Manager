@@ -14,7 +14,7 @@ import { tableContext } from "../Context/Context";
 
 
 const Manager = () => {
-  const { passwordArray, handleDelete, handleEdit, deleteAll, setPasswordArray } = useContext(tableContext);
+  const { passwordArray, handleDelete, handleEdit, deleteAll, setPasswordArray,isNotified, setIsNotified } = useContext(tableContext);
   const [show, setshow] = useState(false);
   const [data, setdata] = useState({ site: "", username: "", password: "" });
   const [touched, setTouched] = useState({ site: false, username: false, password: false });
@@ -36,6 +36,7 @@ const Manager = () => {
       JSON.stringify([...passwordArray, { ...data, id: uuidv4() }]));
     setdata({ site: "", username: "", password: "" });
     setTouched({ site: false, username: false, password: false });
+    setIsNotified(true) //FOR THE VAULT CIRCLE NOTIFICATION
     toast("Saved Successfully!", {
       position: "top-right",
       autoClose: 2000,

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { tableContext } from "../Context/Context";
 import { MdContentCopy, MdDeleteOutline } from "react-icons/md";
-import { FiEdit3 } from "react-icons/fi";
+// import { FiEdit3 } from "react-icons/fi";
 import { toast, ToastContainer } from "react-toastify";
 
 const List = () => {
