@@ -4,7 +4,6 @@ import Navbar from "./Component/Navbar";
 import Manager from "./Component/Manager";
 import Footer from "./Component/Footer";
 import List from "./Component/List";
-import Home from "./Component/Home";
 import Landing from "./Component/Landing";
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
