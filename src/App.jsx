@@ -8,6 +8,7 @@ import Landing from "./Component/Landing";
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { tableContext } from "./Context/Context";
+import { ToastContainer, toast } from "react-toastify";
 
 
 
@@ -61,7 +62,6 @@ function App() {
       else {
         setPasswordArray([])
         localStorage.clear()
-
 
         toast.success("It is all clear!", {
           position: "top-right",
