@@ -32,3 +32,25 @@ body {
 .red {
     color: red;
 }
+ 
+.custom-shape-divider-bottom-1752050492 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1752050492 svg {
+    position: relative;
+    display: block;
+    width: calc(113% + 1.3px);
+    height: 165px;
+    /* background: #bb2c2c; */
+}
+
+.custom-shape-divider-bottom-1752050492 .shape-fill {
+    fill: #7C3AED;
+}

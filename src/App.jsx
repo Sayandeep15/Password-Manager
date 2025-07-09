@@ -4,9 +4,13 @@ import Navbar from "./Component/Navbar";
 import Manager from "./Component/Manager";
 import Footer from "./Component/Footer";
 import List from "./Component/List";
+import Home from "./Component/Home";
+import Landing from "./Component/Landing";
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { tableContext } from "./Context/Context";
+
+
 
 function App() {
 
@@ -105,12 +109,16 @@ function App() {
   };
 
   const router = createBrowserRouter([
-    {
+     {
       path: "/",
+      element: <><Navbar /> <Landing /> <Footer /></>
+    },
+    {
+      path: "/manager",
       element: <><Navbar /> <Manager /> <Footer /></>
     },
     {
-      path: "/list",
+      path: "/vault",
       element: <><Navbar /> <List /> <Footer /></>
     }
 
