@@ -44,22 +44,21 @@ function App() {
 
   //DELETE ALL
   const deleteAll = () => {
-    let c = confirm("Do you want to delete?")
-    if (c) {
-
-      if (passwordArray.length == 0) {
-        toast.warning("Nothing to delete!", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
-      else {
+    if (passwordArray.length == 0) {
+      toast.warning("Nothing to delete!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    else {
+      let c = confirm("Do you want to delete?")
+      if (c) {
         setPasswordArray([])
         localStorage.clear()
 
@@ -73,8 +72,10 @@ function App() {
           progress: undefined,
           theme: "light",
         });
+
       }
     }
+
   }
 
   //EDIT FUNCTION
@@ -108,7 +109,7 @@ function App() {
   };
 
   const router = createBrowserRouter([
-     {
+    {
       path: "/",
       element: <><Navbar /> <Landing /> <Footer /></>
     },
