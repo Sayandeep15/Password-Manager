@@ -22,8 +22,8 @@ const Navbar = () => {
   return (
     <div className='text-white flex justify-between  px-4  items-center'>
       <div className='flex flex-row items-center justify-center relative'>
-        <img src={logo} sizes='128x128' className=' my-auto h-[45px]  ' />
-        <h1 className='text-3xl absolute left-9 top-0.5'>Safe<span className='text-violet-600'>Nest </span></h1>
+        <img src={logo} sizes='128x128' className=' mt-0.5 h-[45px]  ' />
+        <h1 className='text-3xl absolute left-9 top-0.5 '>Safe<span className='text-violet-600'>Nest </span></h1>
       </div>
       <div>
         <nav className='flex gap-4 font-semibold cursor-pointer items-center'>
