@@ -16,7 +16,7 @@ function App() {
 
   const [passwordArray, setPasswordArray] = useState([]);
   const [data, setdata] = useState({ site: "", username: "", password: "" });
-  const [isNotified, setIsNotified] = useState(false);
+  // const [isNotified, setIsNotified] = useState(false);
 
   useEffect(() => {
     let password = localStorage.getItem("password");
@@ -108,11 +108,11 @@ function App() {
     handleEdit,
     deleteAll,
     copyText,
-    isNotified, 
-    setIsNotified,
+    
     data, 
     setdata
   };
+  // isNotified, setIsNotified,
 
   const router = createBrowserRouter([
     {

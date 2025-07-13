@@ -10,7 +10,8 @@ import logo from '../assets/applogo.png';
 
 const Navbar = () => {
   const location = useLocation();
-  const { passwordArray,isNotified, setIsNotified,data, setdata } = useContext(tableContext);
+  const { passwordArray,data, setdata } = useContext(tableContext);
+  // isNotified, setIsNotified,
 
     // Clear notification when on /vault
   useEffect(() => {
@@ -60,9 +61,9 @@ const Navbar = () => {
             >
               Vault
             </NavLink>
-          {isNotified  && (
+          {/* {isNotified  && (
               <span className="absolute top-0 -right-1 w-2 h-2 bg-violet-500 rounded-full shadow-md animate-pulse" />
-            )}
+            )} */}
           </div>
 
           <NavLink className=" flex items-center gap-1  hover:scale-105 transition-all ease-in" target='_blank' to="https://github.com/Sayandeep15/Password-Manager">Github<ImGithub /></NavLink>
