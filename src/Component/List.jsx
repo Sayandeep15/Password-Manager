@@ -5,7 +5,7 @@ import { MdContentCopy, MdDeleteOutline } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
 
 const List = () => {
-  const { passwordArray, handleDelete, handleEdit, deleteAll, setPasswordArray } = useContext(tableContext);
+  const { passwordArray, handleDelete, handleEdit, deleteAll, setPasswordArray,data, setdata } = useContext(tableContext);
 
   const copyText = (text) => {
     navigator.clipboard.writeText(text);

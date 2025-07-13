@@ -10,7 +10,7 @@ import logo from '../assets/applogo.png';
 
 const Navbar = () => {
   const location = useLocation();
-  const { passwordArray,isNotified, setIsNotified } = useContext(tableContext);
+  const { passwordArray,isNotified, setIsNotified,data, setdata } = useContext(tableContext);
 
     // Clear notification when on /vault
   useEffect(() => {
