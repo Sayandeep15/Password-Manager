@@ -14,9 +14,8 @@ import { tableContext } from "../Context/Context";
 
 
 const Manager = () => {
-  const { passwordArray, handleDelete, handleEdit, deleteAll, setPasswordArray,isNotified, setIsNotified } = useContext(tableContext);
+  const { passwordArray, handleDelete, handleEdit, deleteAll, setPasswordArray,isNotified, setIsNotified,data, setdata } = useContext(tableContext);
   const [show, setshow] = useState(false);
-  const [data, setdata] = useState({ site: "", username: "", password: "" });
   const [touched, setTouched] = useState({ site: false, username: false, password: false });
 
   // ----FUNCTIONS----

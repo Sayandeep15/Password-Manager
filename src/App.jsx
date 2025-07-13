@@ -15,6 +15,7 @@ import { ToastContainer, toast } from "react-toastify";
 function App() {
 
   const [passwordArray, setPasswordArray] = useState([]);
+  const [data, setdata] = useState({ site: "", username: "", password: "" });
   const [isNotified, setIsNotified] = useState(false);
 
   useEffect(() => {
@@ -108,7 +109,9 @@ function App() {
     deleteAll,
     copyText,
     isNotified, 
-    setIsNotified
+    setIsNotified,
+    data, 
+    setdata
   };
 
   const router = createBrowserRouter([
