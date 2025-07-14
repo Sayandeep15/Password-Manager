@@ -31,6 +31,7 @@ function App() {
     if (c) {
       setPasswordArray(passwordArray.filter(item => item.id !== id))
       localStorage.setItem("password", JSON.stringify(passwordArray.filter(item => item.id !== id)))
+      setIsNotified(false) //FOR THE VAULT CIRCLE NOTIFICATION
       toast("Deleted Successfully!", {
         position: "top-right",
         autoClose: 2000,
@@ -63,7 +64,7 @@ function App() {
       if (c) {
         setPasswordArray([])
         localStorage.clear()
-
+        setIsNotified(false) //FOR THE VAULT CIRCLE NOTIFICATION
         toast.success("It is all clear!", {
           position: "top-right",
           autoClose: 2000,
@@ -108,12 +109,12 @@ function App() {
     handleEdit,
     deleteAll,
     copyText,
-    isNotified, 
+    isNotified,
     setIsNotified,
-    data, 
+    data,
     setdata
   };
- 
+
 
   const router = createBrowserRouter([
     {
