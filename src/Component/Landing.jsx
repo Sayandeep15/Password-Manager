@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import lockImage from '../assets/password.svg';
 
 
+
 const Landing = () => {
   return (
 
@@ -21,21 +22,19 @@ const Landing = () => {
           <h1 className="text-5xl font-bold leading-tight">
             Your <span className="text-violet-600">Passwords</span>,<br /> Safe & Sound
           </h1>
-          
-
           <p className="text-lg text-gray-300">
             Say goodbye to sticky notes and forgotten logins. A simple, secure, and local password manager built for everyday use. All your data stays on your device.
           </p>
-         
+
 
           <div className="flex gap-4 justify-center">
             <Link to="/manager">
-              <button className="bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2 px-6 rounded-full transition-all">
+              <button className="cursor-pointer bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2 px-6 rounded-full transition-all">
                 Get Started
               </button>
             </Link>
             <Link to="/vault">
-              <button className="bg-white text-violet-700 font-semibold py-2 px-6 rounded-full hover:bg-gray-100 transition-all">
+              <button className="cursor-pointer bg-white text-violet-700 font-semibold py-2 px-6 rounded-full hover:bg-gray-100 transition-all">
                 View My Vault
               </button>
             </Link>
