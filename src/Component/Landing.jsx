@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import lockImage from '../assets/password.svg';
+import AnimatedContent from './AnimatedContent'
+import FadeContent from './FadeContent'
 
 
 
@@ -8,6 +10,7 @@ const Landing = () => {
   return (
 
     <div className="w-full min-h-[80%]  text-white flex items-center justify-center px-6 py-16">
+      
       <div class="custom-shape-divider-bottom-1752050492">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
@@ -19,14 +22,15 @@ const Landing = () => {
       <div className="max-w-7xl w-full flex justify-around gap-12 items-center ">
         {/* LEFT: Text content */}
         <div className="flex flex-col gap-6 w-1/2 text-center">
+          <FadeContent>
           <h1 className="text-5xl font-bold leading-tight">
             Your <span className="text-violet-600">Passwords</span>,<br /> Safe & Sound
           </h1>
           <p className="text-lg text-gray-300">
             Say goodbye to sticky notes and forgotten logins. A simple, secure, and local password manager built for everyday use. All your data stays on your device.
-          </p>
+          </p></FadeContent>
 
-
+          <FadeContent delay ={0.2}>
           <div className="flex gap-4 justify-center">
             <Link to="/manager">
               <button className="cursor-pointer bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2 px-6 rounded-full transition-all">
@@ -38,37 +42,41 @@ const Landing = () => {
                 View My Vault
               </button>
             </Link>
-          </div>
+          </div></FadeContent>
+          
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 text-center">
-            <div>
-              <h2 className="text-xl font-semibold mb-1">🔒 Local & Secure</h2>
-              <p className="text-gray-400 text-sm">Data stays in your browser — never stored online.</p>
-            </div>
-            <div>
+            <AnimatedContent distance={50} ease="bounce.out" delay={0.2}>
+              <div>
+                <h2 className="text-xl font-semibold mb-1">🔒 Local & Secure</h2>
+                <p className="text-gray-400 text-sm">Data stays in your browser — never stored online.</p>
+              </div></AnimatedContent>
+            <AnimatedContent distance={50} ease="bounce.out" delay={0.3}><div>
               <h2 className="text-xl font-semibold mb-1">⚡ Fast & Lightweight</h2>
               <p className="text-gray-400 text-sm">Instant access with zero bloat or delay.</p>
-            </div>
-            <div>
+            </div></AnimatedContent>
+            <AnimatedContent distance={50} ease="bounce.out" delay={0.4}><div>
               <h2 className="text-xl font-semibold mb-1">📋 Easy Copy & Edit</h2>
               <p className="text-gray-400 text-sm">Manage credentials in just a few clicks.</p>
-            </div>
+            </div></AnimatedContent>
           </div>
         </div>
 
         {/* RIGHT: Image */}
-        <div className="relative items-center  w-fit m-4">
-          <img
-            src={lockImage}
-            loading="eager"  // Force it to load immediately
-            width="400"
-            height="400"
-            onLoad={(e) => e.currentTarget.classList.add("opacity-100")}
-            alt="Password Manager Illustration"
-            className=" rounded-lg shadow-lg"
-          />
-          <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-3xl w-84 h-24 -z-20 top-[50%] transform -translate-1/2 left-[50%]"></div>
-        </div>
+        <AnimatedContent distance={100} delay={0.5}>
+          <div className="relative items-center  w-fit m-4">
+            <img
+              src={lockImage}
+              loading="eager"  // Force it to load immediately
+              width="400"
+              height="400"
+              onLoad={(e) => e.currentTarget.classList.add("opacity-100")}
+              alt="Password Manager Illustration"
+              className=" rounded-lg shadow-lg"
+            />
+            <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-3xl w-84 h-24 -z-20 top-[50%] transform -translate-1/2 left-[50%]"></div>
+          </div>
+        </AnimatedContent>
       </div>
 
     </div>
