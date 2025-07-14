@@ -5,7 +5,7 @@ import lockImage from '../assets/password.svg';
 
 const Landing = () => {
   return (
-    
+
     <div className="w-full min-h-[80%]  text-white flex items-center justify-center px-6 py-16">
       <div class="custom-shape-divider-bottom-1752050492">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -21,10 +21,12 @@ const Landing = () => {
           <h1 className="text-5xl font-bold leading-tight">
             Your <span className="text-violet-600">Passwords</span>,<br /> Safe & Sound
           </h1>
+          
 
           <p className="text-lg text-gray-300">
             Say goodbye to sticky notes and forgotten logins. A simple, secure, and local password manager built for everyday use. All your data stays on your device.
           </p>
+         
 
           <div className="flex gap-4 justify-center">
             <Link to="/manager">
@@ -69,9 +71,9 @@ const Landing = () => {
           <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-3xl w-84 h-24 -z-20 top-[50%] transform -translate-1/2 left-[50%]"></div>
         </div>
       </div>
-      
+
     </div>
-    
+
   );
 };
 
