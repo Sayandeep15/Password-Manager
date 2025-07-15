@@ -10,7 +10,7 @@ const Landing = () => {
   return (
 
     <div className="w-full min-h-[80%]  text-white flex items-center justify-center px-6 py-16">
-      
+
       <div class="custom-shape-divider-bottom-1752050492">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
@@ -23,27 +23,27 @@ const Landing = () => {
         {/* LEFT: Text content */}
         <div className="flex flex-col gap-6 w-1/2 text-center">
           <FadeContent>
-          <h1 className="text-5xl font-bold leading-tight">
-            Your <span className="text-violet-600">Passwords</span>,<br /> Safe & Sound
-          </h1>
-          <p className="text-lg text-gray-300">
-            Say goodbye to sticky notes and forgotten logins. A simple, secure, and local password manager built for everyday use. All your data stays on your device.
-          </p></FadeContent>
+            <h1 className="text-5xl font-bold leading-tight">
+              Your <span className="text-violet-600">Passwords</span>,<br /> Safe & Sound
+            </h1>
+            <p className="text-lg text-gray-300">
+              Say goodbye to sticky notes and forgotten logins. A simple, secure, and local password manager built for everyday use. All your data stays on your device.
+            </p></FadeContent>
 
-          <FadeContent delay ={0.2}>
-          <div className="flex gap-4 justify-center">
-            <Link to="/manager">
-              <button className="cursor-pointer bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2 px-6 rounded-full transition-all">
-                Get Started
-              </button>
-            </Link>
-            <Link to="/vault">
-              <button className="cursor-pointer bg-white text-violet-700 font-semibold py-2 px-6 rounded-full hover:bg-gray-100 transition-all">
-                View My Vault
-              </button>
-            </Link>
-          </div></FadeContent>
-          
+          <FadeContent delay={0.2}>
+            <div className="flex gap-4 justify-center">
+              <Link to="/manager">
+                <button className="cursor-pointer bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2 px-6 rounded-full transition-all">
+                  Get Started
+                </button>
+              </Link>
+              <Link to="/vault">
+                <button className="cursor-pointer bg-white text-violet-700 font-semibold py-2 px-6 rounded-full hover:bg-gray-100 transition-all">
+                  View My Vault
+                </button>
+              </Link>
+            </div></FadeContent>
+
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 text-center">
             <AnimatedContent distance={50} ease="bounce.out" delay={0.2}>

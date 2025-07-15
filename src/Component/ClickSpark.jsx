@@ -11,8 +11,8 @@ const ClickSpark = ({
   children
 }) => {
   const canvasRef = useRef(null);
-  const sparksRef = useRef([]);     
-  const startTimeRef = useRef(null); 
+  const sparksRef = useRef([]);
+  const startTimeRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -72,7 +72,7 @@ const ClickSpark = ({
 
     const draw = (timestamp) => {
       if (!startTimeRef.current) {
-        startTimeRef.current = timestamp; 
+        startTimeRef.current = timestamp;
       }
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -140,7 +140,7 @@ const ClickSpark = ({
   };
 
   return (
-    <div 
+    <div
       style={{
         position: 'relative',
         width: '100%',
