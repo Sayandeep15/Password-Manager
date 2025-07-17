@@ -1,4 +1,4 @@
-IMPORTANT IMPORTS:
+IMPORTANT IMPORTS AND FEATURES:
 1. react icons
 2. uuid (npm i uuid)
 3. styled-components
@@ -11,10 +11,31 @@ IMPORTANT IMPORTS:
 5. react router
    => npm i react-router-dom
 
-6. npm install framer-motion
+6. import { useLocation } from "react-router-dom"; [to locate the route]
 
-7. import { useLocation } from "react-router-dom"; [to locate the route]
+7. New addition notification/alert: When new data is added an alert ball will appeares on the top of vault menu
 
+8. The wave shape in Landing page is taken from Shape Builder and animation is added from React Bits.
 
+9. To avoid deplpoyment error in Vercel, a Vercel.json file is added->
+   ```
+   {
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+   ]
+  }
+  ```
+
+  In addition vite.config.js file has also been updated like bellow->
+  ```
+  export default defineConfig({
+  base: "/",
+  plugins: [tailwindcss(),react()],
+  })
+
+  ```
 
 
